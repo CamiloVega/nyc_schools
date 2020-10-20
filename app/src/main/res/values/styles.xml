@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="FragmentToolbarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/toolbar_bg</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item name="titleTextAppearance">@style/Text.Toolbar</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="ToolbarBase" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/toolbar_bg</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_arrow_left_white</item>
+        <item name="titleTextAppearance">@style/Text.Toolbar</item>
+    </style>
+
+    <style name="Text.Toolbar" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/text_header_medium</item>
+    </style>
+
+</resources>

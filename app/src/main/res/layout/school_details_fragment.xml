@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/toolbar" />
+
+        <TextView
+            android:id="@+id/school_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:gravity="center"
+            tools:text="Full Name"
+            android:textSize="@dimen/header_text_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <TextView
+            android:id="@+id/sat_scores_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:gravity="center"
+            android:text="@string/sat_scores"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/school_name" />
+
+        <TextView
+            android:id="@+id/sat_math_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:gravity="center"
+            android:text="@string/math"
+            app:layout_constraintEnd_toStartOf="@+id/sat_reading_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sat_scores_label" />
+
+        <TextView
+            android:id="@+id/sat_reading_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:gravity="center"
+            android:text="@string/reading"
+            app:layout_constraintEnd_toStartOf="@+id/sat_writing_label"
+            app:layout_constraintStart_toEndOf="@+id/sat_math_label"
+            app:layout_constraintTop_toBottomOf="@+id/sat_scores_label" />
+
+        <TextView
+            android:id="@+id/sat_writing_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:gravity="center"
+            android:text="@string/writing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sat_reading_label"
+            app:layout_constraintTop_toBottomOf="@+id/sat_scores_label" />
+
+        <TextView
+            android:id="@+id/sat_math_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tiny_margin"
+            android:gravity="center"
+            tools:text="427"
+            app:layout_constraintEnd_toEndOf="@id/sat_math_label"
+            app:layout_constraintStart_toStartOf="@id/sat_math_label"
+            app:layout_constraintTop_toBottomOf="@+id/sat_math_label" />
+
+        <TextView
+            android:id="@+id/sat_reading_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tiny_margin"
+            android:gravity="center"
+            tools:text="402"
+            app:layout_constraintEnd_toEndOf="@id/sat_reading_label"
+            app:layout_constraintStart_toStartOf="@id/sat_reading_label"
+            app:layout_constraintTop_toBottomOf="@+id/sat_reading_label" />
+
+        <TextView
+            android:id="@+id/sat_writing_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tiny_margin"
+            android:gravity="center"
+            tools:text="432"
+            app:layout_constraintEnd_toEndOf="@id/sat_writing_label"
+            app:layout_constraintStart_toStartOf="@id/sat_writing_label"
+            app:layout_constraintTop_toBottomOf="@+id/sat_writing_label" />
+
+        <TextView
+            android:id="@+id/summary_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:padding="@dimen/small_margin"
+            android:textSize="@dimen/header_text_size"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sat_writing_value"
+            android:text="@string/summary" />
+
+        <TextView
+            android:id="@+id/summary_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/small_margin"
+            android:textSize="@dimen/content_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/summary_label"
+            tools:text="@string/lorem_ipsum" />
+
+        <TextView
+            android:id="@+id/extra_curricular_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:padding="@dimen/small_margin"
+            android:textSize="@dimen/header_text_size"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/summary_value"
+            android:text="@string/extra_curricular_activities" />
+
+        <TextView
+            android:id="@+id/extra_curricular_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/small_margin"
+            android:textSize="@dimen/content_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extra_curricular_label"
+            tools:text="@string/lorem_ipsum" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

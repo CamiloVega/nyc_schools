@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">NYC Schools</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="error">Error</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod turpis mi, vel scelerisque augue consequat ac. Donec blandit condimentum magna vitae consequat. Ut eget sodales enim, eu sodales nulla. Quisque fermentum sed velit nec semper. Donec enim velit, bibendum a volutpat consectetur, auctor sit amet risus. Fusce suscipit felis in gravida varius. Vestibulum gravida, leo non viverra vehicula, neque felis sagittis neque, facilisis aliquet magna justo vel massa. Ut rutrum varius diam, sed maximus mauris. Nunc lorem tortor, ullamcorper sed nisl eu, tristique feugiat eros. Fusce sit amet metus bibendum risus cursus laoreet ac ac eros.</string>
+    <string name="ok">OK</string>
+    <string name="not_reported">Not Reported</string>
+    <string name="math">MATH</string>
+    <string name="reading">READING</string>
+    <string name="writing">WRITING</string>
+    <string name="summary">Summary</string>
+    <string name="extra_curricular_activities">Extra Curricular activities</string>
+    <string name="sat_scores">SAT SCORES</string>
+</resources>

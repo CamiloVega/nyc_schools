@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/nav_graph"
+  app:startDestination="@id/schoolListFragment">
+
+  <fragment
+    android:id="@+id/schoolListFragment"
+    android:name="cvdevelopers.takehome.ui.schoollist.SchoolListFragment"
+    tools:layout="@layout/school_list_fragment">
+    <action
+      android:id="@+id/action_schoolListFragment_to_schoolDetailsFragment"
+      app:destination="@id/schoolDetailsFragment"
+      app:popUpTo="@id/schoolListFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/schoolDetailsFragment"
+    android:name="cvdevelopers.takehome.ui.schooldetails.SchoolDetailsFragment"
+    tools:layout="@layout/school_details_fragment" >
+    <argument
+      android:name="schoolDbn"
+      app:argType="string" />
+
+  </fragment>
+</navigation>
