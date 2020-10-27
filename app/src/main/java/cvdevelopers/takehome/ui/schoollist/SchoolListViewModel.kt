@@ -58,14 +58,16 @@ class SchoolListViewModel @Inject constructor(
             schoolName = school_name,
             schoolBorough = borough?.trim().orEmpty(),
             schoolSummary = overview_paragraph.orEmpty(),
-            onClick = {
-                eventLiveData.onNext(ViewEvent.NavigateToSchool(dbn))
-            }
+            schoolDbn = dbn
     )
 
     public override fun onCleared() {
         disposable.clear()
         super.onCleared()
+    }
+
+    fun onSchoolClicked(schoolDbn: String) {
+        eventLiveData.onNext(ViewEvent.NavigateToSchool(schoolDbn))
     }
 
     companion object {

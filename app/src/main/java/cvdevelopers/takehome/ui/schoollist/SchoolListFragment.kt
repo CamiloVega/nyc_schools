@@ -25,23 +25,21 @@ import javax.inject.Inject
 class SchoolListFragment : Fragment() {
 
     @Inject
-    lateinit var adapter: SchoolListAdapter
-
-    @Inject
     lateinit var viewModelFactory: ViewModelFactory
-
-    companion object {
-        fun newInstance() = SchoolListFragment()
-    }
 
     private val disposable = CompositeDisposable()
 
     private lateinit var viewModel: SchoolListViewModel
 
+    private lateinit var adapter: SchoolListAdapter
+
     override fun onAttach(context: Context) {
         (activity as MainActivity).activityComponent.fragmentComponent().create().inject(this)
         super.onAttach(context)
         viewModel = ViewModelProvider(this, viewModelFactory).get(SchoolListViewModel::class.java)
+        adapter = SchoolListAdapter {
+            viewModel.onSchoolClicked(it)
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

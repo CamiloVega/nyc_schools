@@ -7,9 +7,8 @@ import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
-import javax.inject.Inject
 
-class SchoolDataRepository @Inject constructor(
+class SchoolDataRepository (
         private val schoolCacheDao: SchoolCacheDao
 ) {
 

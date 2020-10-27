@@ -63,9 +63,7 @@ class SchoolListViewModelTest {
         //verify that with no interaction, navigation observable does not have values
         navigationTestObserver.assertNoValues()
         //verify that invoking the onClick for the display data creates a navigate to school event with the correct DBN
-        displayData.onClick.invoke()
-        val viewEvent = navigationTestObserver.values()[0]
-        assertEquals(SchoolListViewModel.ViewEvent.NavigateToSchool("SCHOOL_DBN"), viewEvent)
+
     }
 
     @Test
@@ -103,6 +101,17 @@ class SchoolListViewModelTest {
         val navigationTestObserver = SUT.observeNavigationData().test()
         errorMessagesListener.sentErrorMessage(errorMessage)
         navigationTestObserver.assertNoValues()
+    }
+
+    @Test
+    fun `when onSchoolClicked is called, a live data for view events is called` () {
+        setupMocks()
+        SUT = SchoolListViewModel(schoolDataRepository, boundaryCallback, errorMessagesListener)
+        val navigationTestObserver = SUT.observeNavigationData().test()
+        SUT.onSchoolClicked("SCHOOL_DBN")
+        navigationTestObserver.assertValueCount(1)
+        val viewEvent = navigationTestObserver.values()[0]
+        assertEquals(SchoolListViewModel.ViewEvent.NavigateToSchool("SCHOOL_DBN"), viewEvent)
     }
 
     private fun setupMocks(capturingSlot: CapturingSlot<Function<School, SchoolDisplayData>>? = null) {
