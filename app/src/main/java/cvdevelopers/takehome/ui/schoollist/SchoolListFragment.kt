@@ -9,34 +9,31 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import cvdevelopers.githubstalker.R
-import cvdevelopers.takehome.MainActivity
-import cvdevelopers.takehome.dagger.vm.ViewModelFactory
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.school_list_fragment.*
-import javax.inject.Inject
+import org.koin.android.ext.android.getKoin
+import org.koin.androidx.viewmodel.scope.viewModel
+import org.koin.core.qualifier.named
+
 
 class SchoolListFragment : Fragment() {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
-
     private val disposable = CompositeDisposable()
 
-    private lateinit var viewModel: SchoolListViewModel
+    private val myScope = getKoin().createScope("listFragmentScope", named("ListFragmentScope"))
+
+    private val viewModel: SchoolListViewModel by myScope.viewModel(this)
 
     private lateinit var adapter: SchoolListAdapter
 
     override fun onAttach(context: Context) {
-        (activity as MainActivity).activityComponent.fragmentComponent().create().inject(this)
         super.onAttach(context)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(SchoolListViewModel::class.java)
         adapter = SchoolListAdapter {
             viewModel.onSchoolClicked(it)
         }

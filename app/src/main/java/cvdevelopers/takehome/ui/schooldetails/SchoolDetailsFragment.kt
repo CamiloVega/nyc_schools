@@ -1,6 +1,5 @@
 package cvdevelopers.takehome.ui.schooldetails
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,29 +7,16 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import cvdevelopers.githubstalker.R
-import cvdevelopers.takehome.MainActivity
-import cvdevelopers.takehome.dagger.vm.ViewModelFactory
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.school_details_fragment.*
-import javax.inject.Inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class SchoolDetailsFragment : Fragment() {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
-
-    private lateinit var viewModel: SchoolDetailsViewModel
-
-    override fun onAttach(context: Context) {
-        (activity as MainActivity).activityComponent
-                .fragmentComponent().create()
-                .fragmentDetailsComponent().create(this).inject(this)
-        super.onAttach(context)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(SchoolDetailsViewModel::class.java)
-    }
+    private  val viewModel: SchoolDetailsViewModel by viewModel { parametersOf(navArgs<SchoolDetailsFragmentArgs>().value.schoolDbn) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

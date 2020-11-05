@@ -2,22 +2,22 @@ package cvdevelopers.takehome
 
 import android.app.Application
 import com.facebook.stetho.Stetho
-import cvdevelopers.takehome.dagger.components.ApplicationComponent
-import cvdevelopers.takehome.dagger.components.DaggerApplicationComponent
-import cvdevelopers.takehome.dagger.modules.ApplicationModule
+import cvdevelopers.takehome.koin.dataModule
+import cvdevelopers.takehome.koin.fragmentModule
+import cvdevelopers.takehome.koin.networkModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
 
 class TakeHomeApplication : Application() {
 
-    val appComponent: ApplicationComponent by lazy {
-        DaggerApplicationComponent
-                .builder()
-                .applicationModule(ApplicationModule(this))
-                .build()
-    }
-
     override fun onCreate() {
         super.onCreate()
-        appComponent.inject(this);
+        startKoin {
+            androidContext(this@TakeHomeApplication)
+            // declare modules to use
+            modules(networkModule, dataModule, fragmentModule)
+        }
         Stetho.initializeWithDefaults(this)
     }
 

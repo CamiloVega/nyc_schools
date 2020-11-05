@@ -12,13 +12,10 @@ import cvdevelopers.takehome.utils.ViewModelStringProvider
 import io.reactivex.Maybe
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
-import javax.inject.Inject
-import javax.inject.Named
 
-class SchoolDetailsViewModel @Inject constructor(
+class SchoolDetailsViewModel (
         private val dataRepository: SchoolDataRepository,
         private val viewModelStringProvider: ViewModelStringProvider,
-        @Named("schoolDbn")
         private val schoolDbn: String
 ) : ViewModel() {
 
